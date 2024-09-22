@@ -1,8 +1,13 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
+
+  // var emailController = TextEditingController();
+  // var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +21,7 @@ class LoginScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(20.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'Login Fourm',
@@ -25,23 +31,80 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 8.0,
+              height: 16.0,
             ),
             TextFormField(
+              controller: TextEditingController(),
               decoration: const InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.email),
-
               ),
               keyboardType: TextInputType.emailAddress,
-              onFieldSubmitted: (value){
+              onFieldSubmitted: (value) {
                 print(value);
               },
             ),
+            SizedBox(height: 20.0),
+            TextFormField(
+              controller: TextEditingController(),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Password",
+                prefixIcon: Icon(Icons.lock),
+              ),
+              keyboardType: TextInputType.visiblePassword,
+            ),
+            SizedBox(height: 16.0),
+            Container(
+              color: Colors.blue,
+              width: double.infinity,
+              child: MaterialButton(
+                child: Text(
+                  "LOGIN",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0,
+                  ),
+                ),
+                onPressed: () {
+                  submit();
+                },
+                height: 50.0,
+              ),
+            ),
+            SizedBox(
+              height: 12.0,
+            ),
+            Row(
+              children: [
+                Text(
+                  "don't have account?",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Register Now",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.blue
+                      ),
+                    )),
+              ],
+            )
           ],
         ),
       ),
     );
   }
+
+  void submit() {
+    // print(emailController.text);
+    // print(passwordController.text);
+  }
+
 }
