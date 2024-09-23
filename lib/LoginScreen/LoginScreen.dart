@@ -1,14 +1,12 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+   LoginScreen({super.key});
 
-  // var emailController = TextEditingController();
-  // var passwordController = TextEditingController();
-
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +32,7 @@ class LoginScreen extends StatelessWidget {
               height: 16.0,
             ),
             TextFormField(
-              controller: TextEditingController(),
+              controller: emailController,
               decoration: const InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
@@ -47,11 +45,17 @@ class LoginScreen extends StatelessWidget {
             ),
             SizedBox(height: 20.0),
             TextFormField(
-              controller: TextEditingController(),
+              controller: passwordController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Password",
                 prefixIcon: Icon(Icons.lock),
+                suffixIcon: MaterialButton(
+                  onPressed: (){
+                    isChecked = !isChecked;
+                  },
+                  child: isChecked? Icon(Icons.remove_red_eye) : Icon(Icons.remove_red_eye_outlined),
+                )
               ),
               keyboardType: TextInputType.visiblePassword,
             ),
@@ -103,8 +107,8 @@ class LoginScreen extends StatelessWidget {
   }
 
   void submit() {
-    // print(emailController.text);
-    // print(passwordController.text);
+    print(emailController.text);
+    print(passwordController.text);
   }
 
 }
