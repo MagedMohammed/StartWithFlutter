@@ -225,9 +225,3 @@ class MessengerScreen extends StatelessWidget {
         ],
       ); // message
 }
-// Todo: - What todo in this Screen
-/*
-1- Create Search Bar
-2- Create Whose are Online
-3- Create Messages List
- */
