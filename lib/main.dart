@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_2/LoginScreen/LoginScreen.dart';
+import 'BMICalculator/BMICalculatorScreen.dart';
 import 'MassengerScreen/messenger_screen.dart';
 import 'UserList/UsersListScreen.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: UserListScreen(),
+      home: BMICalculatorScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
